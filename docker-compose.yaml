@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: jobber
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: jobberdb
+    ports:
+      - '5434:5432'
