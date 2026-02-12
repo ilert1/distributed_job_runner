@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { JobsModule } from './jobs/jobs.module';
+import { JobsModule } from './jobs.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
@@ -8,7 +8,6 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    JobsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
@@ -18,6 +17,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
       introspection: true, // Sandbox
       plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
     }),
+    JobsModule,
   ],
   controllers: [],
   providers: [],
