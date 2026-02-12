@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky",
-    "generate-ts-proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto.cmd --ts_proto_out=./libs/shared/src ./proto/*.proto --ts_proto_opt=nestJs=true"
+    "generate-ts-proto": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto.cmd --ts_proto_out=./libs/shared/src ./proto/*.proto --ts_proto_opt=nestJs=true",
+    "start": "nx run-many -t serve -p jobber-auth jobber-jobs jobber-executor"
   },
   "nx": {
     "targets": {
@@ -39,7 +40,9 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.3",
     "cookie-parser": "^1.4.7",
+    "fibonacci": "^1.6.12",
     "graphql": "^16.12.0",
+    "graphql-type-json": "^0.3.2",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.17.2",
