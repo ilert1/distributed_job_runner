@@ -20,14 +20,14 @@ export abstract class PulsarConsumer<T> implements OnModuleInit {
   }
 
   private async listener(message: Message) {
+    this.logger.log('Listener invoked');
     try {
       const data = deserialize<T>(message.getData());
-      this.logger.debug(`Received message: ${JSON.stringify(data)}`);
+      this.logger.log(`Received message: ${JSON.stringify(data)}`);
       await this.onMessage(data);
     } catch (error) {
       this.logger.error(`Error processing message: ${error}`);
     } finally {
-      // await this.acknowledge(message);
       await this.consumer.acknowledge(message);
     }
   }

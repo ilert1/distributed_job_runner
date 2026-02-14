@@ -15,6 +15,7 @@ export class PulsarClient implements OnModuleDestroy {
   async createProducer(topic: string) {
     const producer = await this.client.createProducer({
       topic,
+      // batchingEnabled: true,
     });
     this.producers.push(producer);
 
@@ -22,11 +23,13 @@ export class PulsarClient implements OnModuleDestroy {
   }
 
   async createConsumer(topic: string, listener: (message: Message) => void) {
+    console.log('Creating consumer for topic', topic); // temporary
     const consumer = await this.client.subscribe({
       topic,
       subscription: `jobber`,
       listener,
     });
+    console.log('Consumer created for topic', topic); // temporary
 
     this.consumers.push(consumer);
     return consumer;
