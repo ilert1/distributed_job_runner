@@ -8,6 +8,7 @@ COPY tsconfig*.json ./
 COPY jest.config.ts ./
 COPY jest.preset.js ./
 COPY .eslint* ./
+COPY webpack.*.config.js ./
 
 COPY apps/executor ./apps/executor
 COPY libs/shared ./libs/shared

@@ -8,6 +8,7 @@ COPY tsconfig*.json ./
 COPY jest.config.ts ./
 COPY jest.preset.js ./
 COPY .eslint* ./
+COPY webpack.*.config.js ./
 
 COPY apps/jobs ./apps/jobs
 COPY libs/graphql ./libs/graphql
@@ -34,7 +35,9 @@ COPY --from=builder /workspace/libs/shared/package.json ./libs/shared/package.js
 COPY --from=builder /workspace/libs/prisma/package.json ./libs/prisma/package.json
 COPY --from=builder /workspace/package-lock.json ./
 
-RUN npm ci --only=production
+ENV NODE_ENV=production
+
+RUN npm ci
 
 COPY --from=builder /workspace/dist ./dist
 
