@@ -2,7 +2,7 @@ import {
   AuthenticateRequest,
   AuthServiceController,
   AuthServiceControllerMethods,
-} from '@jobber/shared';
+} from '@jobber/grpc';
 import { Controller, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { UsersService } from '../users/users.service';

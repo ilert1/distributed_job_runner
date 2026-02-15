@@ -9,14 +9,13 @@ import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
-    ConfigModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        secret: configService.getOrThrow<string>('JWT_SECRET'),
+        secret: configService.get<string>('JWT_SECRET'),
         signOptions: {
-          expiresIn: configService.getOrThrow<number>('JWT_EXPIRES_IN'),
+          expiresIn: configService.get<number>('JWT_EXPIRES_IN'),
         },
       }),
     }),

@@ -1,1 +1,1 @@
-export * from './proto/auth';
+export * from './lib/init';

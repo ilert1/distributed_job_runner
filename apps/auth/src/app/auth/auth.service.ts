@@ -1,4 +1,4 @@
-import { GqlContext } from '@jobber/nestjs';
+import { GqlContext } from '@jobber/graphql';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { LoginInput } from './dto/login.input';
 import { UsersService } from '../users/users.service';

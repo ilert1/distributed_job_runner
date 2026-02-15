@@ -9,7 +9,9 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     PrismaModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

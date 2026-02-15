@@ -12,7 +12,7 @@
         "args": ["--node-env=production"],
         "cwd": "apps/auth"
       },
-      "dependsOn": ["generate-prisma-types", "generate-ts-proto"],
+      "dependsOn": ["generate-prisma-types", "^build"],
       "configurations": {
         "development": {
           "args": ["--node-env=development"]
@@ -81,9 +81,6 @@
       "options": {
         "cwd": "{projectRoot}"
       }
-    },
-    "generate-ts-proto": {
-      "command": "nx generate-ts-proto"
     }
   }
 }

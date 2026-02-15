@@ -15,7 +15,7 @@ export async function init(app: INestApplication) {
 
   app.use(cookieParser());
 
-  const port = app.get(ConfigService).getOrThrow('PORT');
+  const port = app.get(ConfigService).get('PORT');
   await app.listen(port);
 
   Logger.log(

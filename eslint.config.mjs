@@ -41,7 +41,7 @@ export default [
       '@nx/enforce-module-boundaries': [
         'error',
         {
-          allow: ['pulsar-client', 'fibonacci'],
+          allow: ['pulsar-client', 'fibonacci', 'cookie-parser'],
         },
       ],
     },
